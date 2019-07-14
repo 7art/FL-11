@@ -3,7 +3,7 @@ function reverseNumber(number) {
     let reverseNumber = 0;
     while (reversePart > 0) {
         let digit = reversePart % 10;
-        reverseNumber = (reverseNumber * 10) + digit;
+        reverseNumber = reverseNumber * 10 + digit;
         reversePart = parseInt(reversePart / 10);
     }
     return reverseNumber * Math.sign(number);
