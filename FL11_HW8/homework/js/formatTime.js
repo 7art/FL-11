@@ -14,8 +14,8 @@ function formatTime(time) {
         minute = time;
     }
     let result = `${day} day(s) ${hour} hour(s) ${minute} minute(s).`;
-    console.log(result);
+    return result;
 }
-formatTime(120); //=> 0 day(s) 2 hour(s) 0 minute(s).
-formatTime(59); //=> 0 day(s) 0 hour(s) 59 minute(s).
-formatTime(3601); //=> 1 day(s) 0 hour(s) 1 minute(s).
+console.log(formatTime(120));
+console.log(formatTime(59));
+console.log(formatTime(3601));
