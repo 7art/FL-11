@@ -59,8 +59,8 @@ let canConvertToDate = function (date) {
 
 let daysBetween = function (firstDate, secondDate) {
     let dayMiliseconds = 86400000;
-    let between = Math.abs(secondDate.getTime() - firstDate.getTime());
-    return Math.ceil(between / dayMiliseconds);
+    let between = secondDate.getTime() - firstDate.getTime();
+    return Math.round(between / dayMiliseconds);
 }
 
 let getAmountOfAdultPeople = function (data) {
