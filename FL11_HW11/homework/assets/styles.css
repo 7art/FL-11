@@ -1,0 +1,97 @@
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+}
+
+h1 {
+    color: skyblue;
+}
+
+.header {
+    text-align: center;
+}
+
+.add-action-icon {
+    color: lightgray;
+    font-size: 45px;
+}
+
+.notifications {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.edit-action-icon,
+.delete-action-icon,
+.done-action-icon,
+.save-action-icon,
+.check-action-icon {
+    color: skyblue;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.new-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.new-action button {
+    border: 0;
+    background: none;
+}
+
+.new-action input,
+.one-action input {
+    border: 0.15em solid lightgray;
+    color: #000000;
+    margin-right: 10px;
+    padding-left: 10px;
+    width: 94%;
+    height: 40px;
+    border-radius: 3px;
+    font-size: 18px;
+}
+
+hr {
+    width: 100%;
+    background-color: lightblue;
+    height: 5px;
+    border: 0;
+    margin-bottom: 20px;
+}
+
+.one-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.one-action p {
+    font-size: 18px;
+    color: #00b5ff;
+    margin: 0px 20px 0px 35px;
+}
+
+.action-conent input {
+    font-size: 13px;
+    height: 30px;
+    width: 50%;
+}
+
+.action-conent {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+}
+
+.hide {
+    display: none;
+}
