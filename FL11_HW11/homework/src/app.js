@@ -5,7 +5,7 @@ const addActionBtn = document.querySelector('.add-action-icon');
 const inputAction = document.querySelector('#action');
 const button = document.querySelector('button');
 const header = document.querySelector('.header');
-const maxItem = 2;
+const maxItem = 10;
 
 button.setAttribute('disabled', 'disabled');
 
