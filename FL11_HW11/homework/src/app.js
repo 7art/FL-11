@@ -10,24 +10,15 @@ const maxItem = 2;
 button.setAttribute('disabled', 'disabled');
 
 inputAction.addEventListener('input', function () {
-    button.disabled = false;
+    if (actionList.childNodes.length < maxItem) {
+        button.disabled = false;
+    }
 });
 
 function addNewAction() {
-    if (actionList.childNodes.length === maxItem) {
-        const notification = document.createElement('div');
-        notification.className = 'notification';
-        const text = document.createTextNode('Maximum item per list are created');
-        notification.appendChild(text);
-        header.appendChild(notification);
-        button.setAttribute('disabled', 'disabled');
-    } else {
+    if (actionList.childNodes.length !== maxItem) {
         button.disabled = false;
         if (inputAction.value !== '') {
-            if (header.classList.contains('notification')) {
-                header.querySelector('.notification').remove();
-            }
-
             const divAction = document.createElement('div');
             const divOneAction = document.createElement('div');
             divOneAction.className = 'one-action';
@@ -61,11 +52,20 @@ function addNewAction() {
             divOneAction.appendChild(deleteActionIcon);
             actionList.innerHTML += divAction.innerHTML;
             inputAction.value = '';
+
+            if (actionList.childNodes.length === maxItem) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                const text = document.createTextNode('Maximum item per list are created');
+                notification.appendChild(text);
+                header.appendChild(notification);
+                button.setAttribute('disabled', 'disabled');
+                inputAction.value = '';
+            }
         }
     }
 }
 addActionBtn.addEventListener('click', addNewAction);
-
 
 function eventHandler(e) {
 
@@ -75,6 +75,12 @@ function eventHandler(e) {
 
     if (e.target.classList.contains('delete-action-icon')) {
         e.target.parentNode.remove();
+        inputAction.value = '';
+        if (actionList.childNodes.length < maxItem && actionList.childNodes.length !== 0) {
+            if (header.querySelector('div').classList.contains('notification')) {
+                header.querySelector('.notification').remove();
+            }
+        }
     } else if (e.target.classList.contains('edit-action-icon')) {
         const inputAction = document.createElement('input');
         const actionContentP = e.target.parentNode.querySelector('.text-action');
@@ -97,7 +103,6 @@ function eventHandler(e) {
     } else if (e.target.classList.contains('check-action-icon')) {
         checkAction.textContent = 'done';
     }
-
 }
 
 actionList.addEventListener('click', eventHandler);
